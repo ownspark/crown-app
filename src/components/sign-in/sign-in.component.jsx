@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import './sign-in.styles.scss';
-
-class SignIn extends Component {
+import CustomButton from '../custom-button/custom-button.component';
+class SignIn extends React.Component {
     constructor(props){
         super(props);
         this.state={
@@ -15,10 +15,12 @@ class SignIn extends Component {
         
         this.setState({email: '', password: ''})
     };
+
     handleChange = event => {
         const { value, name } = event.target;
         this.setState({[name]: value})
     }
+    
     render() {
         return (
             <div className='sign-in'>
@@ -41,7 +43,7 @@ class SignIn extends Component {
                         value={this.state.password} 
                         required/>
                     
-                    <input type="submit" value="Submit Form"/>
+                    <CustomButton type='submit' >Sign in</CustomButton>
                 </form>
             </div>
         )
